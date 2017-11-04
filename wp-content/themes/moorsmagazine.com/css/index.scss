@@ -16,15 +16,40 @@ body {
 @import 'content';
 
 .frontpage {
-  font-size: 11px;
   margin-top: 20px;
   display: block;
-  text-align: center;
+}
+
+#s {
+  padding: 8px;
+  width: 100%;
+  border: none;
+  box-shadow: inset 0px 1px 4px rgba(0,0,0,0.3);
+  border-radius: 2px;
+}
+
+#searchform {
+  .screen-reader-text {
+    display: none;
+  }
+  margin-bottom: 32px;
+}
+
+#searchsubmit {
+  margin-top: 4px;
+  width: 100%;
+  padding: 4px;
+  border-radius: 2px;
+  border: none;
+  background-color: #45af8f;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 3px 0 -1px rgba(0,0,0,0.2);
 }
 
 .container {
   width: 100%;
-  max-width: 980px;
+  max-width: 1060px;
   padding: 0 10px;
   margin: auto;
 }
@@ -162,27 +187,43 @@ body.home #list {
 }
 
 body.home {
+
+  .container {
+    width: fit-content;
+  }
+
+  #body {
+    margin-top: 2em;
+  }
+
   aside {
-    text-align: right;
-    padding-right: 20px;
-    width: 132px;
+    padding-left: 30px;
+    width: 240px;
+  }
+
+  h2 {
+    color: #333;
   }
 
   .item {
-    display: table-cell;
-
-    padding: 0 15px;
-    vertical-align: top;
-    border-bottom: 1px dotted black;
-
+    margin: 2em 3em 3em;
+    p {
+      max-width: 600px
+    }
   }
+
+  #list .align-right {
+    float: right;
+  }
+
   .date {
     display: table-cell;
     vertical-align: middle;
     text-align: center;
     width: 100px;
     text-transform: lowercase;
-    border-right: 1px dotted black;
+    //border-right: 1px dotted black;
+    border-left: 1px dotted black;
     border-bottom: 1px dotted black;
   }
 
@@ -316,6 +357,15 @@ body.search {
         max-width: 100%;
         height: inherit;
       }
+    }
+  }
+}
+
+@media screen and (max-width: 620px) {
+  body.home {
+    .item {
+      margin: 16px 0 3em;
+      padding-left: 0;
     }
   }
 }
