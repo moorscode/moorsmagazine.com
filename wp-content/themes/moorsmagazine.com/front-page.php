@@ -26,10 +26,10 @@ get_header();
 
 			<p>
 
-				<a href="<?php bloginfo( 'rss2_url' ); ?>" target="_blank"><img
+				<a href="<?php bloginfo( 'rss2_url' ); ?>" target="_blank" rel="noopener"><img
 							src="http://www.moorsmagazine.com/icon-rss-social.gif"
 							style="border-width: 0px; margin-left: 7px;" align="right" border="0" height="32"
-							width="32"></a><a href="http://twitter.com/moorsmagazine" target="_blank"><img
+							width="32"></a><a href="http://twitter.com/moorsmagazine" target="_blank" rel="noopener"><img
 							alt="Volg Moors Magazine op Twitter" src="http://www.moorsmagazine.com/twitter-icon.gif"
 							style="border-width: 0px;" align="right" border="0" height="32" width="32"></a>
 			</p>
