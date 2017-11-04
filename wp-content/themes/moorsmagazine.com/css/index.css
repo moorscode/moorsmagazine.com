@@ -26,7 +26,7 @@ h3 {
 
 a {
   color: blue;
-  text-decoration: none; }
+  text-decoration: underline; }
 
 a:hover {
   color: red; }
@@ -80,14 +80,12 @@ img.featured, img.border {
   margin: auto; }
 
 #masthead {
-  padding-bottom: 15px;
-  margin-bottom: 15px;
-  border-bottom: 1px dashed #45af8f; }
+  margin-bottom: 32px; }
   #masthead h1 {
     background-color: #45af8f;
     color: #ffffcc;
     border-bottom: 2px solid #378a71;
-    margin: 0 0 10px;
+    margin: 0;
     padding: 10px 0 22px;
     display: block;
     text-align: center;
@@ -102,7 +100,7 @@ img.featured, img.border {
     padding: 0;
     text-align: center;
     display: block;
-    margin: 15px auto 0; }
+    margin: 0 auto 0; }
     #masthead #categories li {
       list-style: none;
       display: inline;
@@ -138,6 +136,32 @@ img.featured, img.border {
     max-width: 100%;
     height: inherit; }
 
+body.category .content-area .listing a {
+  text-decoration: none; }
+body.category .content-area .listing header {
+  min-height: 100px;
+  margin: 16px 0;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+  border: 1px solid #ccc;
+  overflow: hidden;
+  display: table;
+  width: 100%; }
+body.category .content-area .listing aside {
+  width: 100px;
+  align-self: center;
+  display: table-cell;
+  background-size: cover;
+  background-position: 50% 50%; }
+body.category .content-area .listing .content {
+  display: table-cell; }
+  body.category .content-area .listing .content .spacer {
+    padding: 16px; }
+  body.category .content-area .listing .content h1 {
+    font-size: x-large; }
+  body.category .content-area .listing .content h2 {
+    font-size: medium; }
+
 #gallery img, #galerie img {
   border: 1px solid black;
   clear: both; }
@@ -159,7 +183,6 @@ h1 {
   color: #45af8f;
   display: inline;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 32px;
   font-weight: bold; }
 
 h1, h2 {
@@ -169,6 +192,15 @@ h1, h2 {
 body.home #list {
   vertical-align: top;
   display: table-cell; }
+
+nav.main {
+  background-color: #378a71;
+  padding: 16px 0;
+  box-shadow: inset 0 0 16px rgba(0, 0, 0, 0.1);
+  color: white; }
+  nav.main a {
+    color: white;
+    text-decoration: underline; }
 
 body.home .container {
   width: fit-content; }
