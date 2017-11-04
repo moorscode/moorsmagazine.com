@@ -1,7 +1,7 @@
 <?php
 
 if ( has_post_thumbnail() ) {
-	$thumbnail = get_the_post_thumbnail_url( null, 'featured', array( 'class' => 'featured' ) );
+	$thumbnail = get_the_post_thumbnail_url( null, 'gallery-thumb' );
 } else {
 	$thumbnail = get_post_meta( get_the_ID(), 'original_featured', true );
 }
