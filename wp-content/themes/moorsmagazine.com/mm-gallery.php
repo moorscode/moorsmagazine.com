@@ -3,8 +3,8 @@
 function generateAlbum( $source ) {
 	$html = '';
 
-	$path  = str_replace( 'http://www.moorsmagazine.com', get_root(), dirname( $source ) );
-	$path  = str_replace( 'https://www.moorsmagazine.com', get_root(), $path );
+	$path = str_replace( 'http://www.moorsmagazine.com', get_root(), dirname( $source ) );
+	$path = str_replace( 'https://www.moorsmagazine.com', get_root(), $path );
 
 	$files = glob( $path . '/*.jpg' );
 	asort( $files );

@@ -1,8 +1,11 @@
 <?php
 
+if ( ! defined('ABSPATH' ) ) {
+	header( 'Location: /', 301, true );
+	exit;
+}
 
 $original_url = 'http://www.moorsmagazine.com' . str_replace( '/moorsmagazine', '', $_SERVER['REQUEST_URI'] );
-
 if ( isset( $_REQUEST['url'] ) ) {
 	$original_url = $_REQUEST['url'];
 }
@@ -21,11 +24,9 @@ get_header();
 ?>
 
 	<div id="primary" class="content-area">
-		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+		<article>
 			<header>
-				<aside>
-<!--					<img src="http://ww.moorsmagazine.com/images/404.gif">-->
-				</aside>
+				<aside></aside>
 
 				<div class="content">
 					<h1>pagina niet gevonden...</h1>
@@ -51,4 +52,3 @@ get_header();
 <?php
 
 get_footer();
-

@@ -2,10 +2,15 @@
 /**
  * The template for displaying search results pages.
  *
- * @package WordPress
+ * @package    WordPress
  * @subpackage Twenty_Fifteen
- * @since Twenty Fifteen 1.0
+ * @since      Twenty Fifteen 1.0
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	header( 'Location: /', 301, true );
+	exit;
+}
 
 get_header(); ?>
 
@@ -24,22 +29,22 @@ get_header(); ?>
 					</header><!-- .page-header -->
 
 					<ul>
-					<?php
-					// Start the loop.
-					while ( have_posts() ) : the_post(); ?>
-
 						<?php
-						/*
-						 * Run the loop for the search to output the results.
-						 * If you want to overload this in a child theme then include a file
-						 * called content-search.php and that will be used instead.
-						 */
-						the_title( sprintf( '<li><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></li>' );
+						// Start the loop.
+						while ( have_posts() ) : the_post(); ?>
 
-						// End the loop.
-					endwhile;
+							<?php
+							/*
+							 * Run the loop for the search to output the results.
+							 * If you want to overload this in a child theme then include a file
+							 * called content-search.php and that will be used instead.
+							 */
+							the_title( sprintf( '<li><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></li>' );
 
-					?>
+							// End the loop.
+						endwhile;
+
+						?>
 					</ul>
 					<?php
 

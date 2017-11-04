@@ -1,5 +1,10 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+	header( 'Location: /', 301, true );
+	exit;
+}
+
 $template = get_template_directory_uri();
 $home = get_home_url();
 
@@ -24,7 +29,6 @@ $home = get_home_url();
 
 <body <?php body_class() ?>>
 
-
 <div id="masthead">
 
 	<header>
@@ -40,9 +44,12 @@ $home = get_home_url();
 				<a href="<?php echo $home ?>/kunst/">kunst</a>&nbsp; &bull;&nbsp;
 				<a href="<?php echo $home ?>/fotografie/">fotografie</a>&nbsp; &bull;&nbsp;
 				<a href="<?php echo $home ?>/muziek/agenda/">concerttips</a>
-				&nbsp;&ndash;&nbsp; <script>(function (a, b, c) {
-						document.write('<a href="' + a + ':' + b + '@' + c + '.com">contact</a>');
-					})('mailto', 'holly', 'moorsmagazine')</script>
+				&nbsp;&ndash;&nbsp;
+				<script>(
+						function( a, b, c ) {
+							document.write( "<a href=\"" + a + ":" + b + "@" + c + ".com\">contact</a>" );
+						}
+					)( "mailto", "holly", "moorsmagazine" );</script>
 
 				<br>
 

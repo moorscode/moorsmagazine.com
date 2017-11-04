@@ -1,69 +1,80 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+	header( 'Location: /', 301, true );
+	exit;
+}
+
 get_header();
 
 ?>
-<div id="body">
+	<div id="body">
 
-	<aside>
-		<p>
-		Met onderstaande zoekmachine kun je zoeken binnen moors magazine. Als je een zoekwoord intikt en je klikt op "zoeken" word je automatisch doorgesluisd naar de speciale zoekpagina.
-		Daar vind je de recente pagina's bovenaan en de oudste onderin.
-		</p>
+		<aside>
+			<p>
+				Met onderstaande zoekmachine kun je zoeken binnen moors magazine. Als je een zoekwoord intikt en je
+				klikt op "zoeken" word je automatisch doorgesluisd naar de speciale zoekpagina.
+				Daar vind je de recente pagina's bovenaan en de oudste onderin.
+			</p>
 
-		<?php get_search_form() ?>
+			<?php get_search_form() ?>
 
-		<p>colofon</p>
+			<p>colofon</p>
 
-		<p>moors magazine is de dagelijkse elektronische krant van holly moors, gestart op 13 november 2002, en vanaf die dag (bijna) elke dag verschenen.</p>
+			<p>moors magazine is de dagelijkse elektronische krant van holly moors, gestart op 13 november 2002, en
+				vanaf die dag (bijna) elke dag verschenen.</p>
 
-		<p>
+			<p>
 
-		<a href="<?php bloginfo('rss2_url'); ?>" target="_blank"><img src="http://www.moorsmagazine.com/icon-rss-social.gif" style="border-width: 0px; margin-left: 7px;" align="right" border="0" height="32" width="32"></a><a href="http://twitter.com/moorsmagazine" target="_blank"><img alt="Volg Moors Magazine op Twitter" src="http://www.moorsmagazine.com/twitter-icon.gif" style="border-width: 0px;" align="right" border="0" height="32" width="32"></a>
-		</p>
-	</aside>
+				<a href="<?php bloginfo( 'rss2_url' ); ?>" target="_blank"><img
+							src="http://www.moorsmagazine.com/icon-rss-social.gif"
+							style="border-width: 0px; margin-left: 7px;" align="right" border="0" height="32"
+							width="32"></a><a href="http://twitter.com/moorsmagazine" target="_blank"><img
+							alt="Volg Moors Magazine op Twitter" src="http://www.moorsmagazine.com/twitter-icon.gif"
+							style="border-width: 0px;" align="right" border="0" height="32" width="32"></a>
+			</p>
+		</aside>
 
-	<div id="list">
+		<div id="list">
 
-		<?php
+			<?php
 
-		$items = new WP_Query(
-			array(
-				'post_type' => 'frontpage',
-				'date_query' => array(
-					array(
-						'column' => 'post_date_gmt',
-						'after' => '2 months ago',
-					)
-				),
-				'posts_per_page' => -1
-			)
-		);
+			$items = new WP_Query(
+				array(
+					'post_type'      => 'frontpage',
+					'date_query'     => array(
+						array(
+							'column' => 'post_date_gmt',
+							'after'  => '2 months ago',
+						)
+					),
+					'posts_per_page' => - 1
+				)
+			);
 
-		if ($items->have_posts()) {
-			while ($items->have_posts()) {
-				$items->the_post();
+			if ( $items->have_posts() ) {
+				while ( $items->have_posts() ) {
+					$items->the_post();
 
-				$date = strtotime(get_field('date'));
-				$date =  strftime('%A <h3>%e</h3> %B', $date);
+					$date = strtotime( get_field( 'date' ) );
+					$date = strftime( '%A <h3>%e</h3> %B', $date );
 
-				?>
+					?>
 
-				<section>
-					<div class="date"><?php echo $date ?></div>
-					<div class="item"><?php the_content() ?></div>
-				</section>
+					<section>
+						<div class="date"><?php echo $date ?></div>
+						<div class="item"><?php the_content() ?></div>
+					</section>
 
-				<?php
+					<?php
+				}
 			}
-		}
 
-		?>
+			?>
 
+		</div>
 
 	</div>
-
-</div>
 
 <?php
 

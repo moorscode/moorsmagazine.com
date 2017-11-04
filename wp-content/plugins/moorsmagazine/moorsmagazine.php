@@ -12,7 +12,7 @@ License: GPL v3
 
 namespace moorsmagazine;
 
-define( 'MOMA_PLUGIN_DIR', dirname( __FILE__ ));
+define( 'MOMA_PLUGIN_DIR', __DIR__ );
 
 require_once 'autoloader.php';
 

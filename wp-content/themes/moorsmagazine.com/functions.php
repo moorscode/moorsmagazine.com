@@ -1,5 +1,10 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+	header( 'Location: /', 301, true );
+	exit;
+}
+
 setlocale( LC_ALL, 'nl_NL' );
 
 // add_filter( 'show_admin_bar', '__return_false' );
@@ -8,11 +13,11 @@ add_image_size( 'gallery-thumb', 192 );
 add_image_size( 'voorpagina', 450 );
 add_image_size( 'featured', 300 );
 
-add_filter('image_size_names_choose', 'my_custom_sizes');
+add_filter( 'image_size_names_choose', 'my_custom_sizes' );
 
-add_action('init', 'custom_rewrite_rules');
+add_action( 'init', 'custom_rewrite_rules' );
 function custom_rewrite_rules() {
-	add_rewrite_rule('^index.html$', 'index.php', 'top');
+	add_rewrite_rule( '^index.html$', 'index.php', 'top' );
 }
 
 function my_custom_sizes( $sizes ) {
@@ -42,11 +47,11 @@ function create_custom_posts() {
 		)
 	);
 
-	if (function_exists('p2p_register_connection_type')) {
+	if ( function_exists( 'p2p_register_connection_type' ) ) {
 		p2p_register_connection_type( array(
-			'name' => 'posts_to_posts',
-			'from' => 'post',
-			'to'   => 'post',
+			'name'       => 'posts_to_posts',
+			'from'       => 'post',
+			'to'         => 'post',
 			'reciprocal' => true
 		) );
 	}
