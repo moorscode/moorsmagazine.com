@@ -16,9 +16,6 @@ $home = get_home_url();
 	<meta content="no" http-equiv="imagetoolbar">
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 	<meta name="template" content="<?php echo $template ?>">
-	<script language="javascript">AC_FL_RunContent = 0;</script>
-	<script src="<?php echo $template ?>/js/AC_RunActiveContent.js" language="javascript"></script>
-	<meta content="width=device-width, initial-scale=1" name="viewport">
 	<link href="<?php echo $template ?>/img/favicon.ico" rel="SHORTCUT ICON">
 	<link href="<?php echo $template ?>/img/favicon.ico" rel="icon" type="image/vnd.microsoft.icon">
 	<link href='http://fonts.googleapis.com/css?family=Lusitana:400' rel='stylesheet' type='text/css'>
