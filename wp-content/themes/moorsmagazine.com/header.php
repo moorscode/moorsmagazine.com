@@ -46,11 +46,7 @@ if ( ! is_front_page() ) {
 				<a href="<?php echo $home ?>/fotografie/">fotografie</a>&nbsp; &bull;&nbsp;
 				<a href="<?php echo $home ?>/muziek/agenda/">concerttips</a>
 				&nbsp;&ndash;&nbsp;
-				<script>(
-						function( a, b, c ) {
-							document.write( "<a href=\"" + a + ":" + b + "@" + c + ".com\">contact</a>" );
-						}
-					)( "mailto", "holly", "moorsmagazine" );</script>
+				<a href="mailto:holly@moorsmagazine.com">contact</a>
 
 				<br>
 
