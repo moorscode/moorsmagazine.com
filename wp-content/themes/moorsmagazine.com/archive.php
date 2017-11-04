@@ -64,7 +64,6 @@ get_header();
 			)
 		);
 
-
 		?>
 
 		<header class="page-header">
@@ -81,27 +80,18 @@ get_header();
 			?>
 		</header><!-- .page-header -->
 
-		<ul>
+		<div class="listing">
 			<?php
-			// Start the Loop.
 
 			if ( have_posts() ) :
-
 			while ( have_posts() ) : the_post();
-
-				/*
-				 * Include the Post-Format-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-				 */
-
-				the_title( sprintf( '<li><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></li>' );
-
-				// End the loop.
+				echo '<a href="' . esc_url( get_permalink() ) . '">';
+				get_template_part( 'template-parts/archive-item' );
+				echo '</a>';
 			endwhile;
 
 			?>
-		</ul>
+		</div>
 	<?php
 
 	// Previous/next page navigation.
