@@ -86,12 +86,11 @@ add_action( 'wp_ajax_nopriv_gallery', 'ajax_gallery' );
 function ajax_gallery() {
 	$source = $_REQUEST['source'];
 
-	require_once( 'mm-gallery.php' );
+	require_once 'mm-gallery.php';
 	generateAlbum( $source );
 
 	exit();
 }
-
 
 add_filter( 'the_content', 'musicplayer_fix', 1, 1 );
 function musicplayer_fix( $content ) {

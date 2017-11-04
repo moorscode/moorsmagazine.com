@@ -29,12 +29,10 @@ get_header();
 
 	<?php
 
-	global $wp_query;
-
 	$list = wp_list_categories(
 		array(
 			'hide_empty'       => 1,
-			'child_of'         => $wp_query->queried_object_id,
+			'child_of'         => get_queried_object_id(),
 			'show_count'       => 0,
 			'exclude'          => array( 1 ),
 			'title_li'         => '',
@@ -59,7 +57,7 @@ get_header();
 
 		query_posts(
 			array(
-				'category__in' => array( $wp_query->query_vars['cat'] ),
+				'category__in' => array( get_query_var( 'cat' ) ),
 				'paged'        => $paged,
 				'posts_per_page=50',
 				'orderby'      => array( 'date' => 'DESC', 'title' => 'ASC' )
@@ -74,7 +72,7 @@ get_header();
 			the_archive_title( '<h1 class="page-title">', '</h1>' );
 			the_archive_description( '<div class="taxonomy-description">', '</div>' );
 
-			$category = get_category( $wp_query->query_vars['cat'] );
+			$category = get_category( get_query_var( 'cat' ) );
 			if ( $category->parent ) {
 				$parent = get_category( $category->parent );
 
