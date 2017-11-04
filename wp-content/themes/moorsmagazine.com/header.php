@@ -29,37 +29,9 @@ if ( ! is_front_page() ) {
 <body <?php body_class() ?>>
 
 <div id="masthead">
-
 	<header>
 		<h1><?php echo $title ?></h1>
-
-		<div class="container">
-			<div id="categories" style="color: blue">
-				<a href="<?php echo home_url() ?>">startpagina</a> &nbsp;&ndash;&nbsp;
-				<a href="<?php echo $home ?>/muziek/">muziek</a>&nbsp; &bull;&nbsp;
-				<a href="<?php echo $home ?>/boeken/">boeken</a>&nbsp; &bull;&nbsp;
-				<a href="<?php echo $home ?>/cartoons/">cartoons en strips</a>&nbsp; &bull;&nbsp;
-				<a href="<?php echo $home ?>/beeld-geluid/">films en tv</a>&nbsp; &bull;&nbsp;
-				<a href="<?php echo $home ?>/kunst/">kunst</a>&nbsp; &bull;&nbsp;
-				<a href="<?php echo $home ?>/fotografie/">fotografie</a>&nbsp; &bull;&nbsp;
-				<a href="<?php echo $home ?>/muziek/agenda/">concerttips</a>
-				&nbsp;&ndash;&nbsp;
-				<a href="mailto:holly@moorsmagazine.com">contact</a>
-
-				<br>
-
-				<a href="<?php echo $home ?>/onzinbak/">onzin</a>&nbsp; &bull;&nbsp;
-				<a href="<?php echo $home ?>/kaartenbak/">kaartenbak</a>&nbsp; &bull;&nbsp;
-				<a href="<?php echo $home ?>/haren/">ons dorp</a>&nbsp; &bull;&nbsp;
-				<a href="<?php echo $home ?>/actualia/">meningen en opinies</a>&nbsp; &bull;&nbsp;
-				<a href="<?php echo $home ?>/buitenwereld/">buitenwereld</a>
-				<br>
-				<a href="<?php echo $home ?>/hollys-hoekje/">holly's hoekje</a>&nbsp; &bull;&nbsp;
-				<a href="<?php echo $home ?>/fotos/">foto's holly moors</a>&nbsp; &bull;&nbsp;
-				<a href="<?php echo $home ?>/gasten/">gastschrijvers</a>
-
-			</div>
-		</div>
+		<?php get_template_part( 'template-parts/nav-main' ); ?>
 	</header>
 </div>
 
