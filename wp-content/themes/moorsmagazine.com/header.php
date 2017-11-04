@@ -8,6 +8,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 $template = get_template_directory_uri();
 $home = get_home_url();
 
+$title = get_option( 'blogname' );
+if ( ! is_front_page() ) {
+	$title = sprintf( '<a href="%s">%s</a>', esc_url( $home ), esc_html( $title ) );
+}
+
 ?><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="nl">
 <head>
@@ -28,7 +33,7 @@ $home = get_home_url();
 <div id="masthead">
 
 	<header>
-		<h1><a href="<?php echo home_url() ?>"><?php echo get_option( 'blogname' ) ?></a></h1>
+		<h1><?php echo $title ?></h1>
 
 		<div class="container">
 			<div id="categories" style="color: blue">
