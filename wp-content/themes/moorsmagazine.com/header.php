@@ -18,7 +18,6 @@ $home = get_home_url();
 	<meta name="template" content="<?php echo $template ?>">
 	<link href="<?php echo $template ?>/img/favicon.ico" rel="SHORTCUT ICON">
 	<link href="<?php echo $template ?>/img/favicon.ico" rel="icon" type="image/vnd.microsoft.icon">
-	<link href='http://fonts.googleapis.com/css?family=Lusitana:400' rel='stylesheet' type='text/css'>
 	<link href="<?php echo $template ?>/css/index.css?v=2" type="text/css" rel="stylesheet">
 	<link href="<?php echo $template ?>/css/jquery.lightbox-0.5.css" type="text/css" rel="stylesheet">
 	<?php wp_head(); ?>
