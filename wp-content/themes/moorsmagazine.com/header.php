@@ -9,7 +9,7 @@ $template = get_template_directory_uri();
 $home = get_home_url();
 
 ?><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html lang="nl">
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta content="nl" http-equiv="Content-Language">
