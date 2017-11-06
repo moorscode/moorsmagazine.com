@@ -20,7 +20,7 @@
 			if ( $type === 'h1' ) {
 				printf( '<%s>%s</%s>', $type, esc_html( $text ), $type );
 			} else {
-				printf( '<div class="%s">%s</div>', $type, esc_html( $text ), $type );
+				printf( '<div class="%s">%s</div>', $type, esc_html( $text ) );
 			}
 		}
 	} else {
