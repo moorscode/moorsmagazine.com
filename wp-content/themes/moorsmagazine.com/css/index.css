@@ -276,8 +276,10 @@ body.home aside {
   @media screen and (max-width: 980px) {
     body.home aside {
       display: none; } }
-body.home header h2 {
-  color: #333; }
+body.home .date {
+  color: #333;
+  font-size: x-large;
+  font-weight: bold; }
 body.home .overview {
   min-width: 680px; }
 body.home .item {

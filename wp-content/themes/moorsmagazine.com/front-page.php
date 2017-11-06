@@ -33,7 +33,7 @@ get_header();
 					?>
 
 					<section>
-						<header><h2><?php echo $date ?></h2></header>
+						<div class="date"><?php echo $date ?></div>
 						<div class="item"><?php the_content() ?></div>
 					</section>
 
