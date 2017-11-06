@@ -42,10 +42,12 @@ get_header();
 
 			?>
 
+			<nav>
 			<?php previous_posts_link(); ?>
 			<div class="align-right">
 				<?php next_posts_link(); ?>
 			</div>
+			</nav>
 
 		</section>
 
@@ -58,7 +60,6 @@ get_header();
 				vanaf die dag (bijna) elke dag verschenen.</p>
 
 			<p>
-
 				<a href="http://twitter.com/moorsmagazine" target="_blank" rel="noopener"><img
 							alt="Volg Moors Magazine op Twitter" src="http://www.moorsmagazine.com/twitter-icon.gif"
 							style="border-width: 0px;" height="32" width="32"></a>
