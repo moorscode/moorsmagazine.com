@@ -8,7 +8,7 @@ if ( has_post_thumbnail() ) {
 
 ?>
 <header>
-	<aside style="background-image: url('<?php echo esc_url( $thumbnail ) ?>');"></aside>
+	<div class="image" style="background-image: url('<?php echo esc_url( $thumbnail ) ?>');"></div>
 
 	<div class="content">
 		<div class="spacer">

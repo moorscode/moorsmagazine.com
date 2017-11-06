@@ -31,20 +31,23 @@ $filmpje = ( in_array( 142, $_categories ) );
 
 ?>
 
-<div id="primary" class="content-area">
-	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-		<?php
+	<main>
+		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+			<?php
 
-		if ( ! $filmpje ) {
-			get_template_part( 'template-parts/content-header' );
-		}
+			if ( ! $filmpje ) {
+				get_template_part( 'template-parts/content-header' );
+			}
 
-		?>
+			?>
+			<div class="content">
+				<?php
+				get_template_part( 'template-parts/content', get_field( 'layout' ) );
+				?>
+			</div>
 
-		<?php get_template_part( 'template-parts/content' ); ?>
-
-	</article>
-</div>
+		</article>
+	</main>
 
 <?php
 

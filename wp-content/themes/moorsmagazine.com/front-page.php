@@ -8,10 +8,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 get_header();
 
 ?>
-	<div id="body">
-
-		<div id="list">
-
+	<main>
+		<section class="overview" role="main">
 			<?php
 
 			$paged = (int) get_query_var( 'paged' );
@@ -35,7 +33,7 @@ get_header();
 					?>
 
 					<section>
-						<h2><?php echo $date ?></h2>
+						<header><h2><?php echo $date ?></h2></header>
 						<div class="item"><?php the_content() ?></div>
 					</section>
 
@@ -50,7 +48,7 @@ get_header();
 				<?php next_posts_link(); ?>
 			</div>
 
-		</div>
+		</section>
 
 		<aside>
 			<?php get_search_form() ?>
@@ -72,7 +70,7 @@ get_header();
 			</p>
 		</aside>
 
-	</div>
+	</main>
 
 <?php
 
