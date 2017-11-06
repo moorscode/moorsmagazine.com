@@ -17,9 +17,8 @@ get_header();
 
 			$items = new WP_Query(
 				array(
-					'post_type'      => 'frontpage',
-					'paged'          => $paged,
-					'posts_per_page' => 14
+					'post_type' => 'frontpage',
+					'paged'     => $paged
 				)
 			);
 
