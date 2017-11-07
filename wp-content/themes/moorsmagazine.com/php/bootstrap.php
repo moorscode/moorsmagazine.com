@@ -54,8 +54,10 @@ class bootstrap {
 		add_action( 'wp_head', function() {
 			if ( is_single() ) {
 				echo '<script type="text/javascript">var ajaxurl = \'' . admin_url( 'admin-ajax.php' ) . '\';</script>';
+			} else {
+				wp_dequeue_style( 'mp3-jplayer' );
 			}
-		} );
+		}, 2 );
 
 		add_action( 'wp_footer', function() {
 			if ( is_single() ) {
