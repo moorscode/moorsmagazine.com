@@ -14,58 +14,43 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header(); ?>
 
-<div id="primary" class="content-area">
-	<article>
-		<div class="text">
-			<aside>
-			</aside>
+<section id="primary" class="content-area">
+	<main id="main" class="site-main" role="main">
 
-			<main id="main" class="site-main" role="main">
+		<?php if ( have_posts() ) : ?>
 
-				<?php if ( have_posts() ) : ?>
+			<header class="page-header">
+				<h1 class="page-title">Zoekresultaten voor: <?php echo get_search_query() ?></h1>
+			</header><!-- .page-header -->
 
-					<header class="page-header">
-						<h1 class="page-title">Zoekresultaten voor: <?php echo get_search_query() ?></h1>
-					</header><!-- .page-header -->
-
-					<ul>
-						<?php
-						// Start the loop.
-						while ( have_posts() ) : the_post(); ?>
-
-							<?php
-							/*
-							 * Run the loop for the search to output the results.
-							 * If you want to overload this in a child theme then include a file
-							 * called content-search.php and that will be used instead.
-							 */
-							the_title( sprintf( '<li><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></li>' );
-
-							// End the loop.
-						endwhile;
-
-						?>
-					</ul>
-					<?php
-
-					// Previous/next page navigation.
-					the_posts_pagination( array(
-						'prev_text'          => '&laquo; vorige pagina',
-						'next_text'          => 'volgende pagina &raquo;',
-						'before_page_number' => '<span class="meta-nav screen-reader-text">pagina </span>',
-					) );
-
-				// If no content, include the "No posts found" template.
-				else :
-					get_template_part( 'content', 'none' );
-
-				endif;
+			<div class="listing">
+				<?php
+				// Start the loop.
+				while ( have_posts() ) : the_post();
+					echo '<a href="' . esc_url( get_permalink() ) . '">';
+					get_template_part( 'template-parts/archive-item' );
+					echo '</a>';
+				endwhile;
 				?>
+			</div>
+			<?php
 
-			</main>
-			<!-- .site-main -->
-		</div>
-	</article>
-</div><!-- .content-area -->
+			// Previous/next page navigation.
+			the_posts_pagination( array(
+				'prev_text'          => '&laquo; vorige pagina',
+				'next_text'          => 'volgende pagina &raquo;',
+				'before_page_number' => '<span class="meta-nav screen-reader-text">pagina </span>',
+			) );
+
+		// If no content, include the "No posts found" template.
+		else :
+			get_template_part( 'content', 'none' );
+
+		endif;
+		?>
+
+	</main>
+	<!-- .site-main -->
+</section><!-- .content-area -->
 
 <?php get_footer(); ?>

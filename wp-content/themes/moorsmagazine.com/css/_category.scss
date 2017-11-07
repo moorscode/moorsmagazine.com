@@ -1,0 +1,64 @@
+.content-area {
+  width: 100%;
+
+  .listing {
+    a {
+      text-decoration: none;
+    }
+
+    header {
+      min-height: 100px;
+      margin: 16px 0;
+      box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
+      border-radius: 2px;
+      border: 1px solid #ccc;
+      overflow: hidden;
+      display: table;
+      width: 100%;
+    }
+
+    .image {
+      width: 100px;
+      align-self: center;
+      display: table-cell;
+      background-size: cover;
+      background-position: 50% 0;
+    }
+
+    .content {
+      display: table-cell;
+
+      .spacer {
+        padding: 16px;
+      }
+      h1 {
+        font-size: x-large;
+      }
+      h2 {
+        font-size: medium;
+      }
+    }
+  }
+}
+
+.page-header {
+  margin-bottom: 15px;
+  h1 {
+    line-height: 100%;
+  }
+  .parent {
+    margin-top: 5px;
+  }
+}
+
+li {
+  margin: 4px 0;
+}
+
+aside {
+  padding-top: 6px;
+}
+
+.container {
+  display: flex;
+}

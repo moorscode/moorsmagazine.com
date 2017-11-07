@@ -8,47 +8,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 get_header();
 
 ?>
-	<div id="body">
-
-		<aside>
-			<p>
-				Met onderstaande zoekmachine kun je zoeken binnen moors magazine. Als je een zoekwoord intikt en je
-				klikt op "zoeken" word je automatisch doorgesluisd naar de speciale zoekpagina.
-				Daar vind je de recente pagina's bovenaan en de oudste onderin.
-			</p>
-
-			<?php get_search_form() ?>
-
-			<p>colofon</p>
-
-			<p>moors magazine is de dagelijkse elektronische krant van holly moors, gestart op 13 november 2002, en
-				vanaf die dag (bijna) elke dag verschenen.</p>
-
-			<p>
-
-				<a href="<?php bloginfo( 'rss2_url' ); ?>" target="_blank" rel="noopener"><img
-							src="http://www.moorsmagazine.com/icon-rss-social.gif"
-							style="border-width: 0px; margin-left: 7px;" align="right" border="0" height="32"
-							width="32"></a><a href="http://twitter.com/moorsmagazine" target="_blank" rel="noopener"><img
-							alt="Volg Moors Magazine op Twitter" src="http://www.moorsmagazine.com/twitter-icon.gif"
-							style="border-width: 0px;" align="right" border="0" height="32" width="32"></a>
-			</p>
-		</aside>
-
-		<div id="list">
-
+	<main>
+		<section class="overview" role="main">
 			<?php
+
+			$paged = (int) get_query_var( 'paged' );
+			$paged = max( 1, $paged );
 
 			$items = new WP_Query(
 				array(
-					'post_type'      => 'frontpage',
-					'date_query'     => array(
-						array(
-							'column' => 'post_date_gmt',
-							'after'  => '2 months ago',
-						)
-					),
-					'posts_per_page' => - 1
+					'post_type' => 'frontpage',
+					'paged'     => $paged
 				)
 			);
 
@@ -57,7 +27,7 @@ get_header();
 					$items->the_post();
 
 					$date = strtotime( get_field( 'date' ) );
-					$date = strftime( '%A <h3>%e</h3> %B', $date );
+					$date = strftime( '%A %e %B', $date );
 
 					?>
 
@@ -72,9 +42,35 @@ get_header();
 
 			?>
 
-		</div>
+			<nav>
+			<?php previous_posts_link(); ?>
+			<div class="align-right">
+				<?php next_posts_link(); ?>
+			</div>
+			</nav>
 
-	</div>
+		</section>
+
+		<aside>
+			<?php get_search_form() ?>
+
+			<p><strong>colofon</strong></p>
+
+			<p>moors magazine is de dagelijkse elektronische krant van holly moors, gestart op 13 november 2002, en
+				vanaf die dag (bijna) elke dag verschenen.</p>
+
+			<p>
+				<a href="http://twitter.com/moorsmagazine" target="_blank" rel="noopener"><img
+							alt="Volg Moors Magazine op Twitter" src="http://www.moorsmagazine.com/twitter-icon.gif"
+							style="border-width: 0px;" height="32" width="32"></a>
+				<a href="<?php bloginfo( 'rss2_url' ); ?>" target="_blank" rel="noopener"><img
+							src="http://www.moorsmagazine.com/icon-rss-social.gif"
+							style="border-width: 0px; margin-left: 7px;" height="32" width="32"
+							alt="moorsmagazine RSS Feed"></a>
+			</p>
+		</aside>
+
+	</main>
 
 <?php
 

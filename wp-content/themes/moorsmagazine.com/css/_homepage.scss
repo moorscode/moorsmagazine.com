@@ -1,0 +1,58 @@
+.container {
+  width: fit-content;
+}
+
+#body {
+  margin-top: 2em;
+}
+
+main {
+  display: flex;
+}
+
+aside {
+  padding-left: 30px;
+  width: 240px;
+  min-width: 240px;
+
+  @media screen and (max-width: 980px) {
+    display: none;
+  }
+}
+
+.date {
+  color: #333;
+  font-size: x-large;
+  font-weight: bold;
+}
+
+.overview {
+  max-width: 680px;
+  width: 100%;
+}
+
+.item {
+  margin: 2em 3em 3em;
+  p {
+    max-width: 600px
+  }
+}
+
+.align-right {
+  float: right;
+}
+
+@media screen and (max-width: 768px) {
+  .overview {
+    min-width: inherit;
+  }
+
+  .item {
+    margin: 16px 0 3em;
+    padding: 0 10px;
+    img {
+      max-width: 100%;
+      height: inherit;
+    }
+  }
+}
