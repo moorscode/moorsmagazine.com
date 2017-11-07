@@ -52,7 +52,9 @@ class bootstrap {
 		} );
 
 		add_action( 'wp_head', function() {
-			echo '<script type="text/javascript">var ajaxurl = \'' . admin_url( 'admin-ajax.php' ) . '\';</script>';
+			if ( is_single() ) {
+				echo '<script type="text/javascript">var ajaxurl = \'' . admin_url( 'admin-ajax.php' ) . '\';</script>';
+			}
 		} );
 
 		add_action( 'wp_footer', function() {
@@ -78,11 +80,29 @@ class bootstrap {
 	public function enqueue_scripts() {
 		$template_directory_uri = get_template_directory_uri();
 
-		wp_enqueue_style( 'moorsmagazine', $template_directory_uri . '/css/index.css', false, $this->get_file_version( '/css/index.css' ) );
+		wp_enqueue_style(
+			'moorsmagazine',
+			$template_directory_uri . '/css/index.css',
+			false,
+			$this->get_file_version( '/css/index.css' )
+		);
 
 		if ( is_single() ) {
-			wp_enqueue_script( 'jquery-lightbox', $template_directory_uri . '/js/jquery.lightbox-0.5.min.js', [ 'jquery' ], $this->get_file_version( 'js/jquery.lightbox-0.5.min.js' ), true );
-			wp_enqueue_style( 'jquery-lightbox', $template_directory_uri . '/css/jquery.lightbox-0.5.css', false, $this->get_file_version( '/css/jquery.lightbox-0.5.css' ), 'screen' );
+			wp_enqueue_script(
+				'jquery-lightbox',
+				$template_directory_uri . '/js/jquery.lightbox-0.5.min.js',
+				[ 'jquery' ],
+				$this->get_file_version( 'js/jquery.lightbox-0.5.min.js' ),
+				true
+			);
+
+			wp_enqueue_style(
+				'jquery-lightbox',
+				$template_directory_uri . '/css/jquery.lightbox-0.5.css',
+				false,
+				$this->get_file_version( '/css/jquery.lightbox-0.5.css' ),
+				'screen'
+			);
 		}
 	}
 
