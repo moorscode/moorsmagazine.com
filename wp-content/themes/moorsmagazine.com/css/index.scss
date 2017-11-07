@@ -13,32 +13,11 @@ body {
   padding-bottom: 60px;
 }
 
-@import '_container';
-
-@import '_content';
-
-.frontpage {
-  margin-top: 20px;
-  display: block;
-}
-
-@import '_search';
-
-body.single {
-  @import '_single';
-}
-
-body.search,
-body.category {
-  @import '_category';
-}
-
-@import '_navigation';
-
 aside {
   width: 330px;
   min-width: 330px;
   padding: 0 15px;
+
   img {
     max-width: 100%;
     height: inherit;
@@ -66,24 +45,42 @@ header {
   }
 }
 
-body.home {
-  @import '_homepage.scss';
+p {
+  line-height: 130%;
 }
 
-@media screen and (max-width: 980px) {
-  p {
-    line-height: 130%;
-  }
+@import '_container';
+@import '_content';
+
+body.single {
+  @import '_single';
 }
+
+body.search,
+body.category {
+  @import '_category';
+}
+
+body.home {
+  @import '_homepage';
+  @import '_homepage-navigation';
+  @import '_search';
+}
+
+body.error404 {
+  .content-area {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .text {
+    margin-top: 32px;
+  }
+  @import '_search';
+}
+
+@import '_navigation';
 
 @media screen and (max-width: 620px) {
-  #masthead {
-    h1 {
-      font-size: 40px;
-      padding: 10px 10px 16px;
-    }
-  }
-
   h1 {
     font-size: 23px;
   }
