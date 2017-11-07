@@ -1,6 +1,4 @@
-<section class="site-main" role="main"><?php the_content(); ?></section>
-
-<section class="site-extra">
+<section class="site-main" role="main">
 	<?php
 
 	the_field( 'supporttext' );
@@ -13,5 +11,8 @@
 	get_template_part( 'template-parts/content-navigation' );
 
 	?>
+</section>
 
+<section class="site-extra">
+	<?php the_content(); ?>
 </section>

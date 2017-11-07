@@ -11,7 +11,8 @@
 	get_template_part( 'template-parts/content-navigation' );
 
 	?>
-
 </section>
 
-<section class="site-extra"><?php the_field( 'supporttext' ); ?></section>
+<section class="site-extra">
+	<?php the_field( 'supporttext' ); ?>
+</section>
