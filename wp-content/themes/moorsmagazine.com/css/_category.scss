@@ -62,3 +62,13 @@ aside {
 .container {
   display: flex;
 }
+
+@media screen and (max-width: 900px) {
+  .container {
+    display: inherit;
+  }
+
+  aside {
+    display: none;
+  }
+}
