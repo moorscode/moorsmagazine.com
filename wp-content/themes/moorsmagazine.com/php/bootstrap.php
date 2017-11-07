@@ -92,7 +92,7 @@ class bootstrap {
 				'jquery-lightbox',
 				$template_directory_uri . '/js/jquery.lightbox-0.5.min.js',
 				[ 'jquery' ],
-				$this->get_file_version( 'js/jquery.lightbox-0.5.min.js' ),
+				$this->get_file_version( '/js/jquery.lightbox-0.5.min.js' ),
 				true
 			);
 
