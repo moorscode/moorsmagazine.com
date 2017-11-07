@@ -21,8 +21,6 @@ if ( ! is_front_page() ) {
 	<meta name="template" content="<?php echo $template ?>">
 	<link href="<?php echo $template ?>/img/favicon.ico" rel="SHORTCUT ICON">
 	<link href="<?php echo $template ?>/img/favicon.ico" rel="icon" type="image/vnd.microsoft.icon">
-	<link href="<?php echo $template ?>/css/index.css?v=4" type="text/css" rel="stylesheet">
-	<link href="<?php echo $template ?>/css/jquery.lightbox-0.5.css" type="text/css" rel="stylesheet">
 	<?php wp_head(); ?>
 </head>
 

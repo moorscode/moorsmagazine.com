@@ -71,11 +71,31 @@ class bootstrap {
 				'voorpagina' => 'Voorpagina',
 			) );
 		} );
+
+		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
+	}
+
+	public function enqueue_scripts() {
+		$template_directory_uri = get_template_directory_uri();
+
+		wp_enqueue_style( 'moorsmagazine', $template_directory_uri . '/css/index.css', false, $this->get_file_version( '/css/index.css' ) );
+
+		if ( is_single() ) {
+			wp_enqueue_script( 'jquery-lightbox', $template_directory_uri . '/js/jquery.lightbox-0.5.min.js', [ 'jquery' ], $this->get_file_version( 'js/jquery.lightbox-0.5.min.js' ), true );
+			wp_enqueue_style( 'jquery-lightbox', $template_directory_uri . '/css/jquery.lightbox-0.5.css', false, $this->get_file_version( '/css/jquery.lightbox-0.5.css' ), 'screen' );
+		}
 	}
 
 	protected function add_admin_hooks() {
 		add_action( 'admin_init', function() {
 			add_editor_style( get_template_directory_uri() . '/css/editor.css' );
 		} );
+	}
+
+	/**
+	 * @return string
+	 */
+	protected function get_file_version( $path ) {
+		return date( 'ymd-Gis', filemtime( dirname( plugin_dir_path( __FILE__ ) ) . $path ) );
 	}
 }

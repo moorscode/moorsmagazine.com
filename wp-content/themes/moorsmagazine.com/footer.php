@@ -13,7 +13,5 @@ wp_footer();
 ?>
 </div>
 
-<script type="text/javascript" src="<?php echo $template ?>/js/jquery.lightbox-0.5.min.js?v=1"></script>
-
 </body>
 </html>
