@@ -4,8 +4,8 @@ main {
     display: flex;
 
     figure {
-      width: 330px;
-      min-width: 330px;
+      width: 100%;
+      max-width: 330px;
       padding: 0 15px;
       margin: 0;
     }
