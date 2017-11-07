@@ -6,12 +6,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 }
 
-$template = get_template_directory_uri();
+?>
+</div>
+
+<?php
 
 wp_footer();
 
 ?>
-</div>
 
 </body>
 </html>
