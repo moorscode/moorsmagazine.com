@@ -59,6 +59,12 @@ class bootstrap {
 			}
 		}, 2 );
 
+		add_action( 'wp_head', function() {
+			if ( ! is_single() ) {
+				wp_deregister_script( 'jquery' );
+			}
+		}, 2);
+
 		add_action( 'wp_footer', function() {
 			if ( is_single() ) {
 				echo '<script type="text/javascript">var originalurl = \'' . get_post_meta( get_the_ID(), 'original_url', true ) . '\';</script>';
