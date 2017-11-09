@@ -2,6 +2,7 @@
 main {
   header {
     display: flex;
+    margin-bottom: 2em;
 
     figure {
       width: 100%;
@@ -21,9 +22,16 @@ main {
       }
     }
 
-    @media screen and (max-width: 680px) {
+    @media screen and (max-width: 980px) {
       display: inherit;
 
+      .titles {
+        margin: 2em 0;
+        padding: 0 15px;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
       figure {
         width: 100%;
         padding: 0;
@@ -32,15 +40,15 @@ main {
           height: inherit;
         }
       }
-
-      .titles {
-        margin: 2em 0 4em;
-      }
     }
   }
 
   .content {
     display: flex;
+
+    li > p {
+      margin: 0;
+    }
 
     .wp-caption {
       width: auto !important;
@@ -71,10 +79,14 @@ main {
         order: 1;
       }
 
+      .site-main,
+      .site-extra {
+        padding: 0 15px;
+      }
+
       .site-extra {
         order: 2;
 
-        padding: 0;
         width: inherit;
         max-width: 330px;
         min-width: 100px;
@@ -83,6 +95,13 @@ main {
       img {
         max-width: 100%;
         height: inherit;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .site-main,
+      .site-extra {
+        padding: 0;
       }
     }
   }
