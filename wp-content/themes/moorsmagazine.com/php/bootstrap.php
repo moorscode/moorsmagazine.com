@@ -63,7 +63,7 @@ class bootstrap {
 			if ( ! is_single() ) {
 				wp_deregister_script( 'jquery' );
 			}
-		}, 2);
+		}, 2 );
 
 		add_action( 'wp_footer', function() {
 			if ( is_single() ) {
@@ -83,6 +83,11 @@ class bootstrap {
 		} );
 
 		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
+		add_action( 'wp_enqueue_scripts', [ $this, 'dequeue_scripts' ], 11 );
+	}
+
+	public function dequeue_scripts() {
+		wp_dequeue_style( 'wpt-twitter-feed' );
 	}
 
 	public function enqueue_scripts() {
