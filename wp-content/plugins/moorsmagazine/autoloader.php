@@ -13,7 +13,8 @@ spl_autoload_register( function ( $class ) {
 	}
 
 	$lookup = array(
-		'Post_Enhancer' => 'class-post-enhancer'
+		'Post_Enhancer' => 'class-post-enhancer',
+		'Bump_Modified_Date' => 'class-bump-modified-date'
 	);
 
 	if ( isset( $lookup[ $parts[1] ] ) ) {

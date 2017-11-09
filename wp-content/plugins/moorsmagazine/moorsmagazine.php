@@ -16,4 +16,9 @@ define( 'MOMA_PLUGIN_DIR', __DIR__ );
 
 require_once 'autoloader.php';
 
-new Post_Enhancer();
+if ( is_admin() ) {
+	new Post_Enhancer();
+}
+
+$bump = new Bump_Modified_Date();
+$bump->add_hooks();
