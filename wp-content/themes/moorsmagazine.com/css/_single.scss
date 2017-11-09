@@ -8,6 +8,9 @@ main {
       max-width: 330px;
       padding: 0 15px;
       margin: 0;
+      img {
+        max-width: 100%;
+      }
     }
 
     .titles {
