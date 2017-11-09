@@ -16,6 +16,9 @@ if ( ! is_front_page() ) {
 ?><!DOCTYPE html>
 <html lang="nl">
 <head>
+	<?php
+	if ( ! is_user_logged_in() ):
+	?>
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-17311600-2"></script>
 	<script>
@@ -25,6 +28,9 @@ if ( ! is_front_page() ) {
 
 		gtag('config', 'UA-17311600-2');
 	</script>
+	<?php
+	endif;
+	?>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="UTF-8">
 	<meta name="template" content="<?php echo $template ?>">
