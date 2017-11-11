@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: moors magazine
-Plugin URI: http://www.moorsmagazine.com
+Plugin URI: https://www.moorsmagazine.com
 Description: Addded functionality to moorsmagazine.com
 Author: Jip Moors
 Version: 1.0.0
