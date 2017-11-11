@@ -1,13 +1,12 @@
 <?php
 /*
-Plugin Name: Gallery Loader
-Plugin URI: https://wordpress.org/plugins/health-check/
+Plugin Name: moors magazine - Gallery Loader
+Plugin URI: https://www.moorsmagazine.com
 Description: Legacy Gallery loader
 Version: 1.0.0
 Author: Jip Moors
 Author URI: https://jipmoors.nl
 Text Domain: moorsmagazine
-Domain Path: /languages
 */
 
 namespace moorsmagazine;
@@ -35,10 +34,12 @@ class Gallery_Loader {
 		$post_id = get_the_ID();
 
 		$original_path = get_post_meta( $post_id, 'original_url', true );
-		$original_path = str_replace( 'http://moorsmagazine.com/', '', $original_path );
-		$original_path = str_replace( 'http://www.moorsmagazine.com/', '', $original_path );
-		$original_path = str_replace( 'https://moorsmagazine.com/', '', $original_path );
-		$original_path = str_replace( 'https://www.moorsmagazine.com/', '', $original_path );
+		$original_path = str_replace( array(
+			'http://moorsmagazine.com/',
+			'http://www.moorsmagazine.com/',
+			'https://moorsmagazine.com/',
+			'https://www.moorsmagazine.com/'
+		), '', $original_path );
 
 		$full_path = dirname( ABSPATH . $original_path );
 
