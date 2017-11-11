@@ -1,3 +1,7 @@
+<section class="site-extra">
+	<?php the_content(); ?>
+</section>
+
 <section class="site-main" role="main">
 	<?php
 
@@ -11,8 +15,4 @@
 	get_template_part( 'template-parts/content-navigation' );
 
 	?>
-</section>
-
-<section class="site-extra">
-	<?php the_content(); ?>
 </section>
