@@ -7,11 +7,18 @@
     "concat": "^1.0.3",
     "concat-cli": "^4.0.0",
     "concat-glob-cli": "^0.1.0",
+    "node-sass": "^4.7.2",
+    "nodemon": "^1.12.1",
     "uglify-js": "^3.2.0"
   },
   "scripts": {
-    "uglify": "yarn uglifyjs --compress --mangle -o ./js/packages/moorsmagazine.min.js ./src/js/*.js",
-    "concat": "concat-cli -f ./js/packages/*.js -o ./js/moorsmagazine.js",
-    "build": "yarn uglify; yarn concat"
+    "uglify-js": "yarn uglifyjs --compress --mangle -o ./js/packages/moorsmagazine.min.js ./src/js/*.js",
+    "concat-js": "concat-cli -f ./js/packages/*.js -o ./js/moorsmagazine.js",
+    "build-js": "yarn uglify-js; yarn concat-js",
+    "build-css-index": "node-sass --source-map true --output-style compressed ./src/scss/index.scss ./css/index.css",
+    "build-css-editor": "node-sass --source-map true --output-style compressed ./src/scss/editor.scss ./css/editor.css",
+    "build-css": "yarn build-css-index; yarn build-css-editor",
+    "watch-css": "nodemon -e scss -x 'yarn build-css'",
+    "build": "yarn build-js; yarn build-css;"
   }
 }
