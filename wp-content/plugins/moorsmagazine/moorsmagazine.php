@@ -14,11 +14,9 @@ namespace moorsmagazine;
 
 define( 'MOMA_PLUGIN_DIR', __DIR__ );
 
-require_once 'autoloader.php';
-
-if ( is_admin() ) {
-	new Post_Enhancer();
+if ( is_readable( __DIR__ . '/vendor/autoload.php' ) ) {
+	require __DIR__ . '/vendor/autoload.php';
 }
 
-$bump = new Bump_Modified_Date();
-$bump->add_hooks();
+$bootstrap = new Plugin\Bootstrap();
+$bootstrap->initialize();

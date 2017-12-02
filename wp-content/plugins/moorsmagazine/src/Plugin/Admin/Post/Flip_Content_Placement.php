@@ -1,33 +1,32 @@
 <?php
-/*
-Plugin Name: moors magazine - Flip Content Placement
-Plugin URI: https://www.moorsmagazine.com
-Description: Content placement changer
-Version: 1.0.0
-Author: Jip Moors
-Author URI: https://jipmoors.nl
-Text Domain: moorsmagazine
-*/
 
-namespace moorsmagazine;
+namespace moorsmagazine\Plugin\Admin\Post;
 
-class Flip_Content_Placement {
-	public function add_hooks() {
-		add_action( 'admin_init', [ $this, 'admin_init' ] );
+use moorsmagazine\WordPress\Integration;
+
+class Flip_Content_Placement implements Integration {
+	public function initialize() {
+		add_action( 'admin_init', [ $this, 'on_admin_init' ] );
 		add_action( 'load-post.php', [ $this, 'handle_request' ] );
 	}
 
-	public function admin_init() {
+	/**
+	 * Registers a metabox to the post post-type.
+	 */
+	public function on_admin_init() {
 		add_meta_box( 'mm_flip_content', 'Inhoud omwisselen', [ $this, 'do_metabox' ], 'post', 'side', 'high' );
 	}
 
+	/**
+	 * Renders the metabox.
+	 */
 	public function do_metabox() {
-		$post   = get_post( $_GET['post'] );
-		$layout = get_field( 'layout', $post->ID );
-
 		echo '<a href="?' . $_SERVER['QUERY_STRING'] . '&amp;flip_content=1" class="button button-large">Omwisselen hoofdtekst en bijtekst</a>';
 	}
 
+	/**
+	 * Handles the flip request.
+	 */
 	public function handle_request() {
 		if ( filter_input( INPUT_GET, 'flip_content' ) !== '1' ) {
 			return;
@@ -54,8 +53,3 @@ class Flip_Content_Placement {
 		exit;
 	}
 }
-
-add_action( 'plugins_loaded', function() {
-	$instance = new Flip_Content_Placement();
-	$instance->add_hooks();
-} );
