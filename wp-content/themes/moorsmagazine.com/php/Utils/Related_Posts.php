@@ -1,37 +1,39 @@
 <?php
 
-namespace moorsmagazine;
+namespace moorsmagazine\Utils;
 
 class Related_Posts {
 	/**
-	 * @param \WP_Query $posts_query
-	 * @param array     $posts
+	 * @param array $post_ids
+	 * @param array $related_posts
 	 *
 	 * @return array
 	 */
-	protected function bump_related_count( $posts_query, $posts ) {
-		foreach ( $posts_query->posts as $post_id ) {
-			if ( array_key_exists( $post_id, $posts ) ) {
-				$posts[ $post_id ]['count'] += 1;
-			} else {
-				$posts[ $post_id ] = array(
+	protected function bump_related_count( $post_ids, $related_posts ) {
+		foreach ( $post_ids as $post_id ) {
+			if ( ! array_key_exists( $post_id, $related_posts ) ) {
+				$related_posts[ $post_id ] = array(
 					'count' => 1,
 					'post'  => $post_id,
 				);
+			} else {
+				$related_posts[ $post_id ]['count'] += 1;
 			}
 		}
 
-		return $posts;
+		return $related_posts;
 	}
 
 	/**
-	 * @param int $post_id
-	 * @param int $limit
+	 * Retrieves the related posts for the given post.
 	 *
-	 * @return array
+	 * @param int $post_id ID of the post.
+	 * @param int $limit   Optional. Limit the amount of related items to retrieve.
+	 *
+	 * @return array List of post IDs that are related.
 	 */
 	public function get( $post_id, $limit = 10 ) {
-		$prominent_words = wp_get_post_terms(
+		$prominent_word_ids = wp_get_post_terms(
 			$post_id,
 			\WPSEO_Premium_Prominent_Words_Registration::TERM_NAME,
 			[ 'fields' => 'ids' ]
@@ -39,7 +41,7 @@ class Related_Posts {
 
 		$related_posts = [];
 
-		foreach ( $prominent_words as $prominent_word ) {
+		foreach ( $prominent_word_ids as $prominent_word_id ) {
 			$query_args  = array(
 				'post__not_in' => [ $post_id ],
 				'fields'       => 'ids',
@@ -47,13 +49,13 @@ class Related_Posts {
 					array(
 						'taxonomy' => \WPSEO_Premium_Prominent_Words_Registration::TERM_NAME,
 						'field'    => 'term_id',
-						'terms'    => $prominent_word,
+						'terms'    => $prominent_word_id,
 					),
 				),
 			);
 			$posts_query = new \WP_Query( $query_args );
 
-			$related_posts = $this->bump_related_count( $posts_query, $related_posts );
+			$related_posts = $this->bump_related_count( $posts_query->posts, $related_posts );
 		}
 
 		// Only fetch items with a count of 2 or higher.

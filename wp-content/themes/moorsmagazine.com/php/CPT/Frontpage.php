@@ -1,12 +1,17 @@
 <?php
 
-namespace moorsmagazine;
+namespace moorsmagazine\CPT;
 
-class CPT_Frontpage {
-	public function add_hooks() {
+use moorsmagazine\WordPress\Integration;
+
+class Frontpage implements Integration {
+	public function initialize() {
 		add_action( 'init', [ $this, 'register' ] );
 	}
 
+	/**
+	 * Registers the frontpage custom post type.
+	 */
 	public function register() {
 		register_post_type(
 			'frontpage',

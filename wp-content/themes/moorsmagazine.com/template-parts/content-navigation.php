@@ -1,7 +1,9 @@
 <?php
 
-$related_posts = new \moorsmagazine\Related_Posts();
-$posts = $related_posts->get( get_queried_object_id() );
+use moorsmagazine\Utils\Related_Posts;
+
+$related_posts = new Related_Posts();
+$posts         = $related_posts->get( get_queried_object_id() );
 
 ?>
 

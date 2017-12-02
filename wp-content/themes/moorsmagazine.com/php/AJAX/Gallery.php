@@ -1,15 +1,20 @@
 <?php
 
-namespace moorsmagazine;
+namespace moorsmagazine\AJAX;
 
-class AJAX_Gallery {
+use moorsmagazine\WordPress\Integration;
+
+class Gallery implements Integration {
 	protected static $connection;
 
-	public function add_hooks() {
+	public function initialize() {
 		add_action( 'wp_ajax_gallery', [ $this, 'ajax_gallery' ] );
 		add_action( 'wp_ajax_nopriv_gallery', [ $this, 'ajax_gallery' ] );
 	}
 
+	/**
+	 * Handles the AJAX request.
+	 */
 	public function ajax_gallery() {
 		$source = $_REQUEST['source'];
 
@@ -18,13 +23,18 @@ class AJAX_Gallery {
 		exit();
 	}
 
+	/**
+	 * Generates an album.
+	 *
+	 * @param string $source
+	 */
 	protected function generateAlbum( $source ) {
 		$html = '';
 
 		$path = str_replace( [
 			'http://www.moorsmagazine.com',
 			'https://www.moorsmagazine.com'
-		], get_root(), dirname( $source ) );
+		], ABSPATH, dirname( $source ) );
 
 		$files = glob( $path . '/*.jpg' );
 		asort( $files );
@@ -59,6 +69,11 @@ class AJAX_Gallery {
 		echo $html;
 	}
 
+	/**
+	 * Establishes an FTP connection.
+	 *
+	 * @return resource
+	 */
 	protected function get_ftp_connection() {
 		if ( ! is_resource( self::$connection ) ) {
 			// set up basic connection
@@ -81,6 +96,12 @@ class AJAX_Gallery {
 		return self::$connection;
 	}
 
+	/**
+	 * Generates a thumbnail for a specific image.
+	 *
+	 * @param string $source
+	 * @param string $destination
+	 */
 	protected function generateThumb( $source, $destination ) {
 
 		$connection = null;

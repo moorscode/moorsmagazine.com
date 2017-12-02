@@ -1,0 +1,16 @@
+{
+    "name": "moorscode/moorsmagazine-theme",
+    "type": "wordpress-theme",
+    "authors": [
+        {
+            "name": "Jip Moors",
+            "email": "jhp.moors@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "moorsmagazine\\": "php/"
+        }
+    }
+}

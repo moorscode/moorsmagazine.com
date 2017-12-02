@@ -7,6 +7,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+define( 'MOORSMAGAZINE_THEME_ROOT', __DIR__ );
+
+if ( is_readable( __DIR__ . '/vendor/autoload.php' ) ) {
+	require __DIR__ . '/vendor/autoload.php';
+}
+
 function get_root() {
 	static $root;
 
@@ -21,6 +27,5 @@ function get_root() {
 	return $root;
 }
 
-require_once __DIR__ . '/php/bootstrap.php';
-$bootstrap = new bootstrap();
-$bootstrap->boot();
+$bootstrap = new Bootstrap();
+$bootstrap->initialize();
