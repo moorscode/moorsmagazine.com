@@ -20,7 +20,7 @@ class Bootstrap extends Integration_Group {
 			new CPT\Frontpage(),
 			new AJAX\Gallery(),
 			new Media\Images(),
-			new Assets\Load(),
+			new Assets\Loader(),
 
 			new Admin\Editor_Style(),
 		];

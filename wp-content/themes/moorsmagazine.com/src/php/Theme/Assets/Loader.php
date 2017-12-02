@@ -4,7 +4,7 @@ namespace moorsmagazine\Theme\Assets;
 
 use moorsmagazine\WordPress\Integration;
 
-class Load implements Integration {
+class Loader implements Integration {
 
 	/**
 	 * Registers all hooks to WordPress.
@@ -63,25 +63,25 @@ class Load implements Integration {
 
 		wp_enqueue_style(
 			'moorsmagazine',
-			$template_directory_uri . '/css/index.css',
+			$template_directory_uri . '/assets/css/index.css',
 			false,
-			$this->get_file_version( '/css/index.css' )
+			$this->get_file_version( '/assets/css/index.css' )
 		);
 
 		wp_enqueue_script(
 			'jquery-lightbox',
-			$template_directory_uri . '/js/moorsmagazine.js',
+			$template_directory_uri . '/assets/js/moorsmagazine.js',
 			[ 'jquery' ],
-			$this->get_file_version( '/js/moorsmagazine.js' ),
+			$this->get_file_version( '/assets/js/moorsmagazine.js' ),
 			true
 		);
 
 		if ( is_single() ) {
 			wp_enqueue_style(
 				'jquery-lightbox',
-				$template_directory_uri . '/css/jquery.lightbox-0.5.css',
+				$template_directory_uri . '/assets/css/jquery.lightbox-0.5.css',
 				false,
-				$this->get_file_version( '/css/jquery.lightbox-0.5.css' ),
+				$this->get_file_version( '/assets/css/jquery.lightbox-0.5.css' ),
 				'screen'
 			);
 		}
