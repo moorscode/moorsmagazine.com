@@ -1,0 +1,17 @@
+{
+  "name": "moorsmagazine.com",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "concat": "^1.0.3",
+    "concat-cli": "^4.0.0",
+    "concat-glob-cli": "^0.1.0",
+    "uglify-js": "^3.2.0"
+  },
+  "scripts": {
+    "uglify": "yarn uglifyjs --compress --mangle -o ./js/packages/moorsmagazine.min.js ./src/js/*.js",
+    "concat": "concat-cli -f ./js/packages/*.js -o ./js/moorsmagazine.js",
+    "build": "yarn uglify; yarn concat"
+  }
+}

@@ -41,47 +41,4 @@ arrayPageSize=new Array(pageWidth,pageHeight,windowWidth,windowHeight);return ar
 arrayPageScroll=new Array(xScroll,yScroll);return arrayPageScroll;};function ___pause(ms){var date=new Date();curDate=null;do{var curDate=new Date();}
 while(curDate-date<ms);};return this.unbind('click').click(_initialize);};})(jQuery);
 
-(function($) {
-  $(document.body).ready(function () {
-
-    var base = $('meta[name="template"]').attr('content');
-
-    $('#galerie').find('a').lightBox({
-      overlayBgColor: galleryColor,
-      overlayOpacity: 1.0,
-      imageLoading: base + "/img/lb-loading.gif",
-      imageBtnClose: base + "/img/close.gif",
-      imageBtnPrev: base + "/img/prev.gif",
-      imageBtnNext: base + "/img/next.gif",
-      imageBlank: base + "/img/blank.gif"
-    });
-
-    var $gallery = $('#gallery');
-    if ($gallery.length) {
-
-
-      var galleryColor = $gallery.attr('bgcolor');
-      $.ajax({
-        url: ajaxurl,
-        data: {
-          action: 'gallery',
-          source: originalurl
-        },
-        method: 'GET',
-        success: function (html) {
-          $gallery.html(html);
-          $gallery.find('img').css('border', '1px solid ' + galleryColor);
-          $gallery.find('a').lightBox({
-            overlayBgColor: galleryColor,
-            overlayOpacity: 1.0,
-            imageLoading: base + "/img/lb-loading.gif",
-            imageBtnClose: base + "/img/close.gif",
-            imageBtnPrev: base + "/img/prev.gif",
-            imageBtnNext: base + "/img/next.gif",
-            imageBlank: base + "/img/blank.gif"
-          });
-        }
-      });
-    }
-  });
-})(jQuery);
+!function(i){i(document.body).ready(function(){var a=i('meta[name="template"]').attr("content");i("#galerie").find("a").lightBox({overlayBgColor:e,overlayOpacity:1,imageLoading:a+"/img/lb-loading.gif",imageBtnClose:a+"/img/close.gif",imageBtnPrev:a+"/img/prev.gif",imageBtnNext:a+"/img/next.gif",imageBlank:a+"/img/blank.gif"});var g=i("#gallery");if(g.length){var e=g.attr("bgcolor");i.ajax({url:ajaxurl,data:{action:"gallery",source:originalurl},method:"GET",success:function(i){g.html(i),g.find("img").css("border","1px solid "+e),g.find("a").lightBox({overlayBgColor:e,overlayOpacity:1,imageLoading:a+"/img/lb-loading.gif",imageBtnClose:a+"/img/close.gif",imageBtnPrev:a+"/img/prev.gif",imageBtnNext:a+"/img/next.gif",imageBlank:a+"/img/blank.gif"})}})}})}(jQuery);

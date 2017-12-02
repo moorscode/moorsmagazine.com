@@ -1,6 +1,6 @@
 <?php
 
-use moorsmagazine\Utils\Related_Posts;
+use moorsmagazine\Theme\Utils\Related_Posts;
 
 $related_posts = new Related_Posts();
 $posts         = $related_posts->get( get_queried_object_id() );

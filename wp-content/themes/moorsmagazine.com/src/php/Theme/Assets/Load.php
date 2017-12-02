@@ -68,15 +68,15 @@ class Load implements Integration {
 			$this->get_file_version( '/css/index.css' )
 		);
 
-		if ( is_single() ) {
-			wp_enqueue_script(
-				'jquery-lightbox',
-				$template_directory_uri . '/js/jquery.lightbox-0.5.min.js',
-				[ 'jquery' ],
-				$this->get_file_version( '/js/jquery.lightbox-0.5.min.js' ),
-				true
-			);
+		wp_enqueue_script(
+			'jquery-lightbox',
+			$template_directory_uri . '/js/moorsmagazine.js',
+			[ 'jquery' ],
+			$this->get_file_version( '/js/moorsmagazine.js' ),
+			true
+		);
 
+		if ( is_single() ) {
 			wp_enqueue_style(
 				'jquery-lightbox',
 				$template_directory_uri . '/css/jquery.lightbox-0.5.css',
