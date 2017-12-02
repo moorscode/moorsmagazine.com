@@ -49,6 +49,4 @@ if ( ! is_front_page() ) {
 	</header>
 </div>
 
-
 <div class="container">
-

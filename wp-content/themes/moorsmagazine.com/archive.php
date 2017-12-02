@@ -25,7 +25,7 @@ get_header();
 
 ?>
 
-	<aside>
+    <aside>
 		<?php
 
 		$list = wp_list_categories(
@@ -44,26 +44,27 @@ get_header();
 			echo '<h2>Onderverdeling:</h2>';
 			echo '<ul id="categories">' . $list . '</ul>';
 		}
-		?>
-	</aside>
 
-	<section id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+		?>
+    </aside>
+
+    <section id="primary" class="content-area">
+        <main id="main" class="site-main" role="main">
 
 			<?php
 
 			query_posts(
-				array(
-					'category__in' => array( get_query_var( 'cat' ) ),
+				[
+					'category__in' => [ get_query_var( 'cat' ) ],
 					'paged'        => $paged,
 					'posts_per_page=50',
-					'orderby'      => array( 'date' => 'DESC', 'title' => 'ASC' )
-				)
+					'orderby'      => [ 'date' => 'DESC', 'title' => 'ASC' ]
+				]
 			);
 
 			?>
 
-			<header class="page-header">
+            <header class="page-header">
 				<?php
 				the_archive_title( '<h1 class="page-title">', '</h1>' );
 				the_archive_description( '<div class="taxonomy-description">', '</div>' );
@@ -72,44 +73,45 @@ get_header();
 				if ( $category->parent ) {
 					$parent = get_category( $category->parent );
 
-					printf( '<div class="parent">Dit is een onderverdeling uit de categorie <a href="%s">%s</a>.</div>', get_category_link( $category->parent ), mb_strtolower( $parent->name ) );
+					printf( '<div class="parent">Dit is een onderverdeling uit de categorie <a href="%s">%s</a>.</div>',
+						get_category_link( $category->parent ), mb_strtolower( $parent->name ) );
 				}
 				?>
-			</header><!-- .page-header -->
+            </header><!-- .page-header -->
 
-			<div class="listing">
-				<?php
+			<?php
 
-				if ( have_posts() ) :
-				while ( have_posts() ) : the_post();
+			if ( have_posts() ) {
+
+				printf( '<div class="listing">' );
+
+				while ( have_posts() ) {
+					the_post();
+
 					echo '<a href="' . esc_url( get_permalink() ) . '">';
 					get_template_part( 'template-parts/archive-item' );
 					echo '</a>';
-				endwhile;
+				}
 
-				?>
-			</div>
-		<?php
+				printf( '</div>' );
 
-		// Previous/next page navigation.
-		the_posts_pagination( array(
-			'prev_text'          => '&laquo; vorige pagina',
-			'next_text'          => 'volgende pagina &raquo;',
-			'before_page_number' => '<span class="meta-nav screen-reader-text">pagina </span>',
-		) );
+				// Previous/next page navigation.
+				the_posts_pagination( array(
+					'prev_text'          => '&laquo; vorige pagina',
+					'next_text'          => 'volgende pagina &raquo;',
+					'before_page_number' => '<span class="meta-nav screen-reader-text">pagina </span>',
+				) );
 
-		// If no content, include the "No posts found" template.
-		else :
-			get_template_part( 'content', 'none' );
+				// If no content, include the "No posts found" template.
+			} else {
+				get_template_part( 'content', 'none' );
+			}
+			?>
 
-		endif;
-		?>
-
-		</main><!-- .site-main -->
-	</section><!-- .content-area -->
+        </main><!-- .site-main -->
+    </section><!-- .content-area -->
 
 <?php
-
 
 wp_reset_query();
 

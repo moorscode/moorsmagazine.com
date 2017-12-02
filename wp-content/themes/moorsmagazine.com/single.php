@@ -27,7 +27,7 @@ foreach ( $categories as $categoryID ) {
 	}
 }
 
-$filmpje = ( in_array( 142, $_categories ) );
+$filmpje = in_array( 142, $_categories, true );
 
 ?>
 
@@ -41,9 +41,7 @@ $filmpje = ( in_array( 142, $_categories ) );
 
 			?>
 			<div class="content">
-				<?php
-				get_template_part( 'template-parts/content', get_field( 'layout' ) );
-				?>
+				<?php get_template_part( 'template-parts/content', get_field( 'layout' ) ); ?>
 			</div>
 
 		</article>
