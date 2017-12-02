@@ -35,8 +35,8 @@ if ( ! is_front_page() ) {
 	<meta charset="UTF-8">
 	<meta name="template" content="<?php echo $template ?>">
 	<meta name="theme-color" content="#328069">
-	<link href="<?php echo $template ?>/img/favicon.ico" rel="SHORTCUT ICON">
-	<link href="<?php echo $template ?>/img/favicon.ico" rel="icon" type="image/vnd.microsoft.icon">
+	<link href="<?php echo $template ?>/assets/img/favicon.ico" rel="SHORTCUT ICON">
+	<link href="<?php echo $template ?>/assets/img/favicon.ico" rel="icon" type="image/vnd.microsoft.icon">
 	<?php wp_head(); ?>
 </head>
 
