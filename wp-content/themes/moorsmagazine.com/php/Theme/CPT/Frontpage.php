@@ -1,6 +1,6 @@
 <?php
 
-namespace moorsmagazine\CPT;
+namespace moorsmagazine\Theme\CPT;
 
 use moorsmagazine\WordPress\Integration;
 

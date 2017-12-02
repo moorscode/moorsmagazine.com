@@ -1,6 +1,6 @@
 <?php
 
-namespace moorsmagazine\Admin;
+namespace moorsmagazine\Theme\Admin;
 
 use moorsmagazine\WordPress\Integration;
 

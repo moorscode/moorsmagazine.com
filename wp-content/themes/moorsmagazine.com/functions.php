@@ -13,19 +13,5 @@ if ( is_readable( __DIR__ . '/vendor/autoload.php' ) ) {
 	require __DIR__ . '/vendor/autoload.php';
 }
 
-function get_root() {
-	static $root;
-
-	if ( null === $root ) {
-		if ( $_SERVER['HTTP_HOST'] === 'localhost' ) {
-			$root = '/Volumes/Macintosh HDD/moorsmagazine.com/httpdocs';
-		} else {
-			$root = $_SERVER['DOCUMENT_ROOT'];
-		}
-	}
-
-	return $root;
-}
-
-$bootstrap = new Bootstrap();
+$bootstrap = new Theme\Bootstrap();
 $bootstrap->initialize();

@@ -1,6 +1,6 @@
 <?php
 
-namespace moorsmagazine\Assets;
+namespace moorsmagazine\Theme\Assets;
 
 use moorsmagazine\WordPress\Integration;
 

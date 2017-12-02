@@ -1,6 +1,6 @@
 <?php
 
-namespace moorsmagazine\AJAX;
+namespace moorsmagazine\Theme\AJAX;
 
 use moorsmagazine\WordPress\Integration;
 

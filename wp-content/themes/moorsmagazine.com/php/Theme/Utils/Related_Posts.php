@@ -1,6 +1,6 @@
 <?php
 
-namespace moorsmagazine\Utils;
+namespace moorsmagazine\Theme\Utils;
 
 class Related_Posts {
 	/**

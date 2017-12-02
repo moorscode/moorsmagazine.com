@@ -1,6 +1,6 @@
 <?php
 
-namespace moorsmagazine\Migration;
+namespace moorsmagazine\Theme\Migration;
 
 use moorsmagazine\WordPress\Integration;
 

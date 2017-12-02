@@ -1,6 +1,6 @@
 <?php
 
-namespace moorsmagazine\Media;
+namespace moorsmagazine\Theme\Media;
 
 use moorsmagazine\WordPress\Integration;
 
