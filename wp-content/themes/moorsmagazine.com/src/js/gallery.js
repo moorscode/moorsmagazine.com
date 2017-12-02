@@ -6,17 +6,16 @@
         $('#galerie').find('a').lightBox({
             overlayBgColor: galleryColor,
             overlayOpacity: 1.0,
-            imageLoading: base + "/img/lb-loading.gif",
-            imageBtnClose: base + "/img/close.gif",
-            imageBtnPrev: base + "/img/prev.gif",
-            imageBtnNext: base + "/img/next.gif",
-            imageBlank: base + "/img/blank.gif"
+            imageLoading: base + "/assets/img/lb-loading.gif",
+            imageBtnClose: base + "/assets/img/close.gif",
+            imageBtnPrev: base + "/assets/img/prev.gif",
+            imageBtnNext: base + "/assets/img/next.gif",
+            imageBlank: base + "/assets/img/blank.gif"
         });
 
         var $gallery = $('#gallery');
+
         if ($gallery.length) {
-
-
             var galleryColor = $gallery.attr('bgcolor');
             $.ajax({
                 url: ajaxurl,
@@ -31,11 +30,11 @@
                     $gallery.find('a').lightBox({
                         overlayBgColor: galleryColor,
                         overlayOpacity: 1.0,
-                        imageLoading: base + "/img/lb-loading.gif",
-                        imageBtnClose: base + "/img/close.gif",
-                        imageBtnPrev: base + "/img/prev.gif",
-                        imageBtnNext: base + "/img/next.gif",
-                        imageBlank: base + "/img/blank.gif"
+                        imageLoading: base + "/assets/img/lb-loading.gif",
+                        imageBtnClose: base + "/assets/img/close.gif",
+                        imageBtnPrev: base + "/assets/img/prev.gif",
+                        imageBtnNext: base + "/assets/img/next.gif",
+                        imageBlank: base + "/assets/img/blank.gif"
                     });
                 }
             });
