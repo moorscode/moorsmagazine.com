@@ -1,8 +1,7 @@
 {
   "name": "moorsmagazine.com",
   "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
+  "license": "GPL3",
   "devDependencies": {
     "concat": "^1.0.3",
     "concat-cli": "^4.0.0",
@@ -12,12 +11,10 @@
     "uglify-js": "^3.2.0"
   },
   "scripts": {
-    "uglify-js": "yarn uglifyjs --compress --mangle -o ./js/packages/moorsmagazine.min.js ./src/js/*.js",
-    "concat-js": "concat-cli -f ./js/packages/*.js -o ./js/moorsmagazine.js",
-    "build-js": "yarn uglify-js; yarn concat-js",
-    "build-css-index": "node-sass --source-map true --output-style compressed ./src/scss/index.scss ./css/index.css",
-    "build-css-editor": "node-sass --source-map true --output-style compressed ./src/scss/editor.scss ./css/editor.css",
-    "build-css": "yarn build-css-index; yarn build-css-editor",
+    "compress-js": "yarn uglifyjs --compress --mangle -o ./js/packages/moorsmagazine.min.js ./src/js/*.js",
+    "combine-js": "concat-cli -f ./js/packages/*.js -o ./js/moorsmagazine.js",
+    "build-js": "yarn compress-js; yarn combine-js",
+    "build-css": "node-sass --source-map true --output-style compressed --recursive --output css src/scss",
     "watch-css": "nodemon -e scss -x 'yarn build-css'",
     "build": "yarn build-js; yarn build-css;"
   }
