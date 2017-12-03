@@ -16,6 +16,7 @@ class Bootstrap extends Integration_Group {
 		return [
 			new Migration\Rewrite_Filename(),
 			new Migration\Music_Player(),
+			new Migration\Mailto_Fix(),
 
 			new CPT\Frontpage(),
 			new AJAX\Gallery(),
