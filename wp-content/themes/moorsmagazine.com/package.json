@@ -11,11 +11,12 @@
     "uglify-js": "^3.2.0"
   },
   "scripts": {
-    "compress-js": "yarn uglifyjs --compress --mangle -o ./assets/js/packages/moorsmagazine.min.js ./src/js/*.js",
-    "combine-js": "concat-cli -f ./assets/js/packages/*.js -o ./assets/js/moorsmagazine.js",
+    "compress-js": "yarn uglifyjs --compress --mangle -o assets/js/packages/moorsmagazine.min.js src/js/*.js",
+    "combine-js": "concat-cli -f assets/js/packages/*.js -o assets/js/moorsmagazine.js",
     "build-js": "yarn compress-js; yarn combine-js",
+    "watch-js": "nodemon -e js --watch src/js -x 'yarn build-js'",
     "build-css": "node-sass -q --source-map true --output-style compressed --recursive --output assets/css src/scss",
-    "watch-css": "nodemon -e scss -x 'yarn build-css'",
+    "watch-css": "nodemon -e scss --watch src/scss -x 'yarn build-css'",
     "build": "yarn build-js; yarn build-css;"
   }
 }
