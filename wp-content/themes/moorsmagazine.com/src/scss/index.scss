@@ -49,22 +49,22 @@ p {
   line-height: 130%;
 }
 
-@import '_container';
-@import '_content';
+@import 'container';
+@import 'content';
 
 body.single {
-  @import '_single';
+  @import 'single';
 }
 
 body.search,
 body.category {
-  @import '_category';
+  @import 'category';
 }
 
 body.home {
-  @import '_homepage';
-  @import '_homepage-navigation';
-  @import '_search';
+  @import 'homepage';
+  @import 'homepage-navigation';
+  @import 'search';
 }
 
 body.error404 {
@@ -75,10 +75,10 @@ body.error404 {
   .text {
     margin-top: 32px;
   }
-  @import '_search';
+  @import 'search';
 }
 
-@import '_navigation';
+@import 'navigation';
 
 @media screen and (max-width: 620px) {
   h1 {
@@ -89,4 +89,4 @@ body.error404 {
   }
 }
 
-@import '_adminbar';
+@import 'adminbar';
