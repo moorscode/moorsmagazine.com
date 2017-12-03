@@ -11,6 +11,7 @@ class Mailto_Fix implements Integration {
 	 */
 	public function initialize() {
 		add_filter( 'the_content', [ $this, 'fix_mailto' ] );
+		add_filter( 'acf/load_value/name=supporttext', [ $this, 'fix_mailto' ] );
 	}
 
 	/**
