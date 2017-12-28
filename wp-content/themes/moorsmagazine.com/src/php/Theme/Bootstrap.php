@@ -3,29 +3,8 @@
 namespace moorsmagazine\Theme;
 
 use moorsmagazine\WordPress\Integration;
-use moorsmagazine\WordPress\Integration_Group;
 
-class Bootstrap extends Integration_Group {
-
-	/**
-	 * Returns a list of integrations to use.
-	 *
-	 * @return Integration[] List of registered integrations.
-	 */
-	protected function get_integrations() {
-		return [
-			new Migration\Rewrite_Filename(),
-			new Migration\Music_Player(),
-			new Migration\Mailto_Fix(),
-
-			new CPT\Frontpage(),
-			new AJAX\Gallery(),
-			new Media\Images(),
-			new Assets\Loader(),
-
-			new Admin\Editor_Style(),
-		];
-	}
+class Bootstrap implements Integration {
 
 	/**
 	 * Initializes the integration.
@@ -38,6 +17,20 @@ class Bootstrap extends Integration_Group {
 			add_theme_support( 'title-tag' );
 		} );
 
-		parent::initialize();
+		$integration_group = new Integration_Group(
+			[
+				new Migration\Rewrite_Filename(),
+				new Migration\Music_Player(),
+				new Migration\Mailto_Fix(),
+
+				new CPT\Frontpage(),
+				new AJAX\Gallery(),
+				new Media\Images(),
+				new Assets\Loader(),
+
+				new Admin\Editor_Style(),
+			]
+		);
+		$integration_group->initialize();
 	}
 }
