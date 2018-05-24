@@ -3,7 +3,7 @@
 
         var base = $('meta[name="template"]').attr('content');
 
-        $('#galerie').find('a').lightBox({
+        $('#galerie a').lightBox({
             overlayBgColor: '#000000',
             overlayOpacity: 1.0,
             imageLoading: base + "/assets/img/lb-loading.gif",

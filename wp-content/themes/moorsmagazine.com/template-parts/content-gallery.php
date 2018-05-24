@@ -12,9 +12,8 @@ if ( $images ) {
 					 width="<?php esc_attr_e( $image['sizes']['gallery-thumb-width'] ); ?>"
 					 height="<?php esc_attr_e( $image['sizes']['gallery-thumb-height'] ); ?>"
 					 alt="<?php esc_attr_e( $image['alt'] ); ?>"/>
-			</a><br>
-			<?php echo $image['caption']; ?>&nbsp;
-		</section>
+			</a><?php echo ( empty( $image['caption'] ) ? '' : '<br>' . $image['caption'] . '&nbsp;' ); ?>
+        </section>
 		<?php
 	}
 
