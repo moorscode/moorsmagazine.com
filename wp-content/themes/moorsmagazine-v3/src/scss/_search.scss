@@ -1,0 +1,26 @@
+#s {
+  padding: 8px;
+  width: 100%;
+  border: none;
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.3);
+  border-radius: 2px;
+}
+
+#searchform {
+  .screen-reader-text {
+    display: none;
+  }
+  margin-bottom: 32px;
+}
+
+#searchsubmit {
+  margin-top: 4px;
+  width: 100%;
+  padding: 4px;
+  border-radius: 2px;
+  border: none;
+  background-color: #45af8f;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 3px 0 -1px rgba(0, 0, 0, 0.2);
+}

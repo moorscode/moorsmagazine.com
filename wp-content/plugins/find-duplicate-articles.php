@@ -13,7 +13,12 @@ namespace moorsmagazine;
 
 class Find_Duplicate_Articles {
 	public function register_hooks() {
+		add_action( 'wp_dashboard_setup', [ $this, 'add_dashboard_widget' ] );
 		add_action( 'admin_menu', [ $this, 'register_options_page' ] );
+	}
+	
+	public function add_dashboard_widget() {
+		wp_add_dashboard_widget( 'duplicate_posts_widget', 'Possible duplicate posts', [ $this, 'show_duplicate_articles' ] );
 	}
 
 	public function register_options_page() {
@@ -33,7 +38,7 @@ class Find_Duplicate_Articles {
 			wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
 		}
 
-		echo '<div class="wrap">';
+		echo '<ol>';
 
 		$query = '
 		SELECT post_name, ID, post_title FROM wp_posts
@@ -56,14 +61,14 @@ class Find_Duplicate_Articles {
 				continue;
 			}
 
-			printf( '<a href="%s" target="_blank">source</a> <a href="%s" target="_blank">duplicate</a>: %s<br/>',
+			printf( '<li><a href="%1$s" target="_blank">%3$s</a> - <a href="%2$s" target="_blank">kopie</a></li>',
 				get_admin_url( null, 'post.php?post=' . $origin[0]->ID . '&action=edit'),
 				get_admin_url(null, 'post.php?post=' . $possible_duplicate->ID . '&action=edit' ),
 				$origin[0]->post_title
 			);
 		}
 
-		echo '</div>';
+		echo '</ol>';
 	}
 }
 

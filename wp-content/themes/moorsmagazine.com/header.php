@@ -16,37 +16,53 @@ if ( ! is_front_page() ) {
 ?><!DOCTYPE html>
 <html lang="nl">
 <head>
-	<?php
-	if ( ! is_user_logged_in() ):
-	?>
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-17311600-2"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
-
-		gtag('config', 'UA-17311600-2');
-	</script>
-	<?php
-	endif;
-	?>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="UTF-8">
 	<meta name="template" content="<?php echo $template ?>">
-	<meta name="theme-color" content="#328069">
-	<link href="<?php echo $template ?>/assets/img/favicon.ico" rel="SHORTCUT ICON">
-	<link href="<?php echo $template ?>/assets/img/favicon.ico" rel="icon" type="image/vnd.microsoft.icon">
+	<link href="<?php echo $template ?>/img/favicon.ico" rel="SHORTCUT ICON">
+	<link href="<?php echo $template ?>/img/favicon.ico" rel="icon" type="image/vnd.microsoft.icon">
+	<link href="<?php echo $template ?>/css/index.css?v=4" type="text/css" rel="stylesheet">
+	<link href="<?php echo $template ?>/css/jquery.lightbox-0.5.css" type="text/css" rel="stylesheet">
 	<?php wp_head(); ?>
 </head>
 
 <body <?php body_class() ?>>
 
 <div id="masthead">
+
 	<header>
 		<h1><?php echo $title ?></h1>
-		<?php get_template_part( 'template-parts/nav-main' ); ?>
+
+		<div class="container">
+			<div id="categories" style="color: blue">
+				<a href="<?php echo home_url() ?>">startpagina</a> &nbsp;&ndash;&nbsp;
+				<a href="<?php echo $home ?>/muziek/">muziek</a>&nbsp; &bull;&nbsp;
+				<a href="<?php echo $home ?>/boeken/">boeken</a>&nbsp; &bull;&nbsp;
+				<a href="<?php echo $home ?>/cartoons/">cartoons en strips</a>&nbsp; &bull;&nbsp;
+				<a href="<?php echo $home ?>/beeld-geluid/">films en tv</a>&nbsp; &bull;&nbsp;
+				<a href="<?php echo $home ?>/kunst/">kunst</a>&nbsp; &bull;&nbsp;
+				<a href="<?php echo $home ?>/fotografie/">fotografie</a>&nbsp; &bull;&nbsp;
+				<a href="<?php echo $home ?>/muziek/agenda/">concerttips</a>
+				&nbsp;&ndash;&nbsp;
+				<a href="mailto:holly@moorsmagazine.com">contact</a>
+
+				<br>
+
+				<a href="<?php echo $home ?>/onzinbak/">onzin</a>&nbsp; &bull;&nbsp;
+				<a href="<?php echo $home ?>/kaartenbak/">kaartenbak</a>&nbsp; &bull;&nbsp;
+				<a href="<?php echo $home ?>/haren/">ons dorp</a>&nbsp; &bull;&nbsp;
+				<a href="<?php echo $home ?>/actualia/">meningen en opinies</a>&nbsp; &bull;&nbsp;
+				<a href="<?php echo $home ?>/buitenwereld/">buitenwereld</a>
+				<br>
+				<a href="<?php echo $home ?>/hollys-hoekje/">holly's hoekje</a>&nbsp; &bull;&nbsp;
+				<a href="<?php echo $home ?>/fotos/">foto's holly moors</a>&nbsp; &bull;&nbsp;
+				<a href="<?php echo $home ?>/gasten/">gastschrijvers</a>
+
+			</div>
+		</div>
 	</header>
 </div>
 
+
 <div class="container">
+

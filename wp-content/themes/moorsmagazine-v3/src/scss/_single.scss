@@ -1,0 +1,123 @@
+
+main {
+  header {
+    display: flex;
+    margin-bottom: 2em;
+
+    figure {
+      width: 100%;
+      max-width: 330px;
+      padding: 0 15px;
+      margin: 0;
+      img {
+        max-width: 100%;
+      }
+    }
+
+    .titles {
+      align-self: center;
+
+      * {
+        color: #328069;
+      }
+
+      .h2 {
+        font-size: large;
+      }
+    }
+
+    @media screen and (max-width: 980px) {
+      display: inherit;
+
+      .titles {
+        margin: 2em 0;
+        padding: 0 15px;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      figure {
+        width: 100%;
+        padding: 0;
+        img {
+          max-width: 100%;
+          height: inherit;
+        }
+      }
+    }
+  }
+
+  .content {
+    display: flex;
+
+    li > p {
+      margin: 0;
+    }
+
+    .wp-caption {
+      width: auto !important;
+      max-width: 650px;
+    }
+
+    .site-main {
+      order: 2;
+    }
+
+    .site-extra {
+      order: 1;
+
+      width: 330px;
+      min-width: 330px;
+      padding: 0 15px;
+
+      img {
+        width: 100%;
+        max-width: 100%;
+        height: inherit;
+      }
+    }
+
+    @media screen and (max-width: 980px) {
+      display: inherit;
+      .site-main {
+        order: 1;
+      }
+
+      .site-main,
+      .site-extra {
+        padding: 0 15px;
+      }
+
+      .site-extra {
+        order: 2;
+
+        width: inherit;
+        max-width: 330px;
+        min-width: 100px;
+      }
+
+      img {
+        max-width: 100%;
+        height: inherit;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .site-main,
+      .site-extra {
+        padding: 0;
+      }
+    }
+  }
+}
+
+#gallery, #galerie {
+  img {
+    border: 1px solid black;
+    clear: both;
+  }
+}
+
+
+
+

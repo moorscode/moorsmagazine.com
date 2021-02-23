@@ -1,0 +1,92 @@
+* {
+  box-sizing: border-box;
+  position: relative;
+}
+
+body, html {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: #ffffcc;
+  padding-bottom: 16px;
+}
+
+aside {
+  width: 330px;
+  min-width: 330px;
+  padding: 0 15px;
+
+  img {
+    max-width: 100%;
+    height: inherit;
+  }
+}
+
+ul {
+  margin: 1em 0 1em 1em;
+  padding: 0 0 0 0.5em;
+}
+
+h1, .h1, h2, .h2 {
+  color: #328069;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+h1 {
+  display: inline;
+}
+
+header {
+  h1, h2 {
+    text-transform: lowercase;
+  }
+}
+
+p {
+  line-height: 130%;
+}
+
+@import 'container';
+@import 'content';
+
+body.single {
+  @import 'single';
+}
+
+body.search,
+body.category {
+  @import 'category';
+}
+
+body.home {
+  @import 'homepage';
+  @import 'homepage-navigation';
+  @import 'search';
+}
+
+body.error404 {
+  .content-area {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .text {
+    margin-top: 32px;
+  }
+  @import 'search';
+}
+
+@import 'navigation';
+
+@media screen and (max-width: 620px) {
+  h1 {
+    font-size: 23px;
+  }
+  h2 {
+    font-size: 17px;
+  }
+}
+
+@import 'adminbar';

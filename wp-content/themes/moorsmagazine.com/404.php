@@ -36,9 +36,11 @@ get_header();
 			</header>
 
 			<div class="text">
-				<aside></aside>
+				<aside>
+				</aside>
 
 				<main id="main" class="site-main" role="main">
+
 					<div class="content">
 						<?php get_search_form() ?>
 					</div>
